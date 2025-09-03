@@ -77,10 +77,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               Secure access for authorized security personnel
             </p>
             <div className="mt-4 text-xs text-gray-500">
-              <p>Demo credentials:</p>
-              <p>Force login: <code className="bg-gray-700 px-1 rounded">force/admin</code></p>
-              <p>Demo admin: <code className="bg-gray-700 px-1 rounded">admin/bypass</code></p>
-              <p>Or create users via User Management</p>
+              <p>Database users only - no demo credentials</p>
+              <p>Contact administrator for account access</p>
             </div>
           </div>
 

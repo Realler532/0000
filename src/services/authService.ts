@@ -6,61 +6,6 @@ class AuthService {
   private currentUser: User | null = null;
 
   async login(credentials: LoginCredentials): Promise<User> {
-    // Force login mechanism - check for special bypass credentials
-    if (credentials.username === 'force' && credentials.password === 'admin') {
-      // Create a temporary admin user for force login
-      const forceUser: User = {
-        id: 'force-admin-id',
-        username: 'force',
-        email: 'force@admin.local',
-        firstName: 'Force',
-        lastName: 'Admin',
-        role: {
-          id: 'security_admin',
-          name: 'Security Administrator',
-          description: 'Full system administration access',
-          level: 1,
-          permissions: this.getRolePermissions('security_admin')
-        },
-        department: 'Security Operations',
-        isActive: true,
-        createdAt: new Date(),
-        createdBy: 'system',
-        permissions: this.getRolePermissions('security_admin')
-      };
-      
-      this.currentUser = forceUser;
-      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-      return this.currentUser;
-    }
-
-    // Check for demo admin bypass
-    if (credentials.username === 'admin' && credentials.password === 'bypass') {
-      const demoUser: User = {
-        id: 'demo-admin-id',
-        username: 'admin',
-        email: 'admin@demo.local',
-        firstName: 'Demo',
-        lastName: 'Administrator',
-        role: {
-          id: 'security_admin',
-          name: 'Security Administrator',
-          description: 'Full system administration access',
-          level: 1,
-          permissions: this.getRolePermissions('security_admin')
-        },
-        department: 'Security Operations',
-        isActive: true,
-        createdAt: new Date(),
-        createdBy: 'system',
-        permissions: this.getRolePermissions('security_admin')
-      };
-      
-      this.currentUser = demoUser;
-      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-      return this.currentUser;
-    }
-
     // Query the users table with proper joins for role information
     const { data, error } = await supabase
       .from('users')
