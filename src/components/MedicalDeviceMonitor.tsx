@@ -276,7 +276,7 @@ export function MedicalDeviceMonitor({ systems, threats }: MedicalDeviceMonitorP
                             <div className="text-red-300 font-medium">{threat.threatType.replace('_', ' ').toUpperCase()}</div>
                             <div className="text-gray-300 text-sm mt-1">{threat.description}</div>
                           </div>
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${
+                          <span className={\`px-2 py-1 rounded text-xs font-medium ${
                             threat.severity === 'critical' ? 'bg-red-900/50 text-red-300' :
                             threat.severity === 'high' ? 'bg-orange-900/50 text-orange-300' :
                             'bg-yellow-900/50 text-yellow-300'
@@ -288,7 +288,7 @@ export function MedicalDeviceMonitor({ systems, threats }: MedicalDeviceMonitorP
                         <div className="grid grid-cols-2 gap-4 text-xs">
                           <div>
                             <span className="text-gray-400">Patient Impact:</span>
-                            <div className={`font-medium ${
+                            <div className={\`font-medium ${
                               threat.patientImpact === 'life_threatening' ? 'text-red-400' :
                               threat.patientImpact === 'high' ? 'text-orange-400' :
                               threat.patientImpact === 'medium' ? 'text-yellow-400' :
@@ -299,7 +299,7 @@ export function MedicalDeviceMonitor({ systems, threats }: MedicalDeviceMonitorP
                           </div>
                           <div>
                             <span className="text-gray-400">HIPAA Impact:</span>
-                            <div className={`font-medium ${threat.hipaaImpact ? 'text-red-400' : 'text-green-400'}`}>
+                            <div className={\`font-medium ${threat.hipaaImpact ? 'text-red-400' : 'text-green-400'}`}>
                               {threat.hipaaImpact ? 'YES' : 'NO'}
                             </div>
                           </div>
